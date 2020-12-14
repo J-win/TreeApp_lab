@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
 
     const int step = 10000;
     const int iteration = 200;
-    const bool flag = true;
+    const bool flag = false;
 
     if (flag)
     {
@@ -191,15 +191,19 @@ int main(int argc, char* argv[])
 
         measureTimeInsertAndFind(rbTree, dataBaseInt, iteration, step, fileWriterInsertForMap, fileWriterFindForMap);
         measureTimeRemove(rbTree, dataBaseInt, iteration, step, fileWriterRemoveForMap);
+        std::cout << "Map done." << std::endl;
 
         measureTimeInsertAndFind(avlTree, dataBaseInt, iteration, step, fileWriterInsertForAVLTree, fileWriterFindForAVLTree);
         measureTimeRemove(avlTree, dataBaseInt, iteration, step, fileWriterRemoveForAVLTree);
+        std::cout << "AVL done." << std::endl;
 
         measureTimeInsertAndFind(splayTree, dataBaseInt, iteration, step, fileWriterInsertForSplayTree, fileWriterFindForSplayTree);
         measureTimeRemove(splayTree, dataBaseInt, iteration, step, fileWriterRemoveForSplayTree);
+        std::cout << "Splay done." << std::endl;
 
         measureTimeInsertAndFind(treapTree, dataBaseInt, iteration, step, priority, fileWriterInsertForTreapTree, fileWriterFindForTreapTree);
         measureTimeRemove(treapTree, dataBaseInt, iteration, step, fileWriterRemoveForTreapTree);
+        std::cout << "Treap done." << std::endl;
     }
     else
     {
@@ -211,22 +215,26 @@ int main(int argc, char* argv[])
         TreapTree<std::string, int, std::string> treapTree;
 
         std::cout << "Generation data..." << std::endl;
-        generateStringData(mersenne, dataBaseString, step * iteration, { 1, 100 });
+        generateStringData(mersenne, dataBaseString, step * iteration, { 50, 60 });
         generateIntData(mersenne, priority, step * iteration, { 1, 2 * step * iteration });
 
         std::cout << "Run operations..." << std::endl;
 
         measureTimeInsertAndFind(rbTree, dataBaseString, iteration, step, fileWriterInsertForMap, fileWriterFindForMap);
         measureTimeRemove(rbTree, dataBaseString, iteration, step, fileWriterRemoveForMap);
+        std::cout << "Map done." << std::endl;
 
         measureTimeInsertAndFind(avlTree, dataBaseString, iteration, step, fileWriterInsertForAVLTree, fileWriterFindForAVLTree);
         measureTimeRemove(avlTree, dataBaseString, iteration, step, fileWriterRemoveForAVLTree);
+        std::cout << "AVL done." << std::endl;
 
         measureTimeInsertAndFind(splayTree, dataBaseString, iteration, step, fileWriterInsertForSplayTree, fileWriterFindForSplayTree);
         measureTimeRemove(splayTree, dataBaseString, iteration, step, fileWriterRemoveForSplayTree);
+        std::cout << "Splay done." << std::endl;
 
         measureTimeInsertAndFind(treapTree, dataBaseString, iteration, step, priority, fileWriterInsertForTreapTree, fileWriterFindForTreapTree);
         measureTimeRemove(treapTree, dataBaseString, iteration, step, fileWriterRemoveForTreapTree);
+        std::cout << "Treap done." << std::endl;
     }
     return 0;
 }
