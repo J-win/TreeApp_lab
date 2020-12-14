@@ -172,12 +172,12 @@ public:
     SplayTree() : root(0) {}
     ~SplayTree() { clear(); }
 
-    void insert(const TypeKey& key, const TypeData& data)
+    void insert(const std::pair<TypeKey, TypeData>& value)
     {
-        root = insertElement(root, key, data);
+        root = insertElement(root, value.first, value.second);
     }
 
-    void remove(const TypeKey& key)
+    void erase(const TypeKey& key)
     {
         root = removeElement(root, key);
     }

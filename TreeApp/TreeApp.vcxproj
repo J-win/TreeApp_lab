@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\AVLTree.h" />
     <ClInclude Include="..\include\SplayTree.h" />
+    <ClInclude Include="..\include\TreapTree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\app\App.cpp" />

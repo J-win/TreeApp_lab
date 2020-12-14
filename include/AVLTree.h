@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 template <typename TypeKey, typename TypeData>
 struct nodeAVL
@@ -180,22 +181,22 @@ public:
 	AVLTree() : root(0), numInsert(0), numRemove(0), numFind(0), numnodeAVL(0) {}
 	~AVLTree() { clear(); }
 
-	void insert(const TypeKey &k, const TypeData &d)
+	void insert(const std::pair<TypeKey, TypeData> &value)
 	{
 		numInsert = 0;
-		root = insertElement(root, k, d);
+		root = insertElement(root, value.first, value.second);
 	}
 
-	void remove(const TypeKey &k)
+	void erase(const TypeKey &key)
 	{
 		numRemove = 0;
-		root = removeElement(root, k);
+		root = removeElement(root, key);
 	}
 
-	TypeData find(const TypeKey &k)
+	TypeData find(const TypeKey &key)
 	{
 		numFind = 0;
-		return findElement(root, k);
+		return findElement(root, key);
 	}
 
 	int getLastNumInsert() const
